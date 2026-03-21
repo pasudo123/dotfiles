@@ -8,23 +8,23 @@
 ## 현재 포함 도구
 `git`, `gh`, `jq`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
 
-| 도구 | 용도 |
-|---|---|
-| `git` | 버전 관리 |
-| `gh` | GitHub CLI |
-| `jq` | JSON 파싱/필터링 |
-| `fzf` | 퍼지 검색 |
-| `zoxide` | 디렉토리 이동 보조 |
-| `fd` | 빠른 파일 검색 |
-| `direnv` | 디렉토리별 환경변수 관리 |
-| `nvm` | Node.js 버전 관리 |
-| `openjdk` | Java 런타임/개발 |
-| `grpcurl` | gRPC API 테스트 |
-| `httpie` | HTTP API 테스트 |
-| `watch` | 명령 반복 실행 |
-| `telnet` | 포트/네트워크 점검 |
-| `tmux` | 터미널 멀티플렉서 |
-| `ripgrep` | 빠른 텍스트 검색 |
+| 도구 | 용도 | 공식 링크 |
+|---|---|---|
+| `git` | 버전 관리 | https://git-scm.com/ |
+| `gh` | GitHub CLI | https://cli.github.com/ |
+| `jq` | JSON 파싱/필터링 | https://jqlang.org/ |
+| `fzf` | 퍼지 검색 | https://github.com/junegunn/fzf |
+| `zoxide` | 디렉토리 이동 보조 | https://github.com/ajeetdsouza/zoxide |
+| `fd` | 빠른 파일 검색 | https://github.com/sharkdp/fd |
+| `direnv` | 디렉토리별 환경변수 관리 | https://direnv.net/ |
+| `nvm` | Node.js 버전 관리 | https://github.com/nvm-sh/nvm |
+| `openjdk` | Java 런타임/개발 | https://openjdk.org/ |
+| `grpcurl` | gRPC API 테스트 | https://github.com/fullstorydev/grpcurl |
+| `httpie` | HTTP API 테스트 | https://httpie.io/ |
+| `watch` | 명령 반복 실행 | https://formulae.brew.sh/formula/watch |
+| `telnet` | 포트/네트워크 점검 | https://formulae.brew.sh/formula/telnet |
+| `tmux` | 터미널 멀티플렉서 | https://github.com/tmux/tmux/wiki |
+| `ripgrep` | 빠른 텍스트 검색 | https://github.com/BurntSushi/ripgrep |
 
 ## 새 도구 추가 방법
 1. 설치: `brew install <tool>`
