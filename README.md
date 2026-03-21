@@ -1,9 +1,28 @@
 # dotfiles
 
-이 저장소는 zsh 환경을 안전하게 백업/이식하기 위한 설정 모음입니다.
+이 저장소는 zsh 환경을 안전하게 이식하고 동기화하기 위한 설정 모음입니다.
 첫 이관에서는 **기능 변경 없이 파일만 분리**하는 것을 원칙으로 합니다.
 
-## 0) 처음 1번만 설치 (현재 맥 기준)
+## 목차
+- [설치 가이드](#설치-가이드)
+  - [A. 현재 맥에 처음 적용](#a-현재-맥에-처음-적용)
+  - [B. 새 맥/새 환경에서 시작](#b-새-맥새-환경에서-시작)
+  - [설치 경로 선택 기준](#설치-경로-선택-기준)
+- [설정 확장 가이드](#설정-확장-가이드)
+  - [1) 새 설정 추가](#1-새-설정-추가)
+  - [2) 새 도구 추가](#2-새-도구-추가)
+- [동기화 가이드 (예시)](#동기화-가이드-예시)
+- [주요 파일 설명](#주요-파일-설명)
+  - [대구분 1: 실행 진입점](#대구분-1-실행-진입점)
+  - [대구분 2: 공통 zsh 모듈](#대구분-2-공통-zsh-모듈)
+  - [대구분 3: 개인 설정](#대구분-3-개인-설정)
+  - [대구분 4: 설치/운영 스크립트](#대구분-4-설치운영-스크립트)
+  - [대구분 5: 운영 문서](#대구분-5-운영-문서)
+
+## 설치 가이드
+
+### A. 현재 맥에 처음 적용
+이미 사용 중인 맥에서 dotfiles를 처음 붙일 때 사용합니다.
 
 ```bash
 cd ~/dotfiles
@@ -12,9 +31,8 @@ cd ~/dotfiles
 
 `bootstrap.sh`는 환경 점검(Homebrew, oh-my-zsh, plugin) 후 `install.sh`를 실행합니다.
 
-## 새 맥 / 새 환경 설치
-
-새 맥은 백업 파일(`*.bak.*`)이 없어도 아래 순서로 진행하면 됩니다.
+### B. 새 맥/새 환경에서 시작
+새 맥/새 계정처럼 깨끗한 환경에서 시작할 때 사용합니다.
 
 ```bash
 # 1) 저장소 받기
@@ -28,37 +46,36 @@ cd ~/dotfiles
 cp zsh/.zshrc.local.example ~/.zshrc.local
 ```
 
-그다음 `~/.zshrc.local`에 개인 경로를 입력하고, 필요한 도구를 설치하세요.
-설치 후 새 터미널을 열거나 `source ~/.zshrc`를 실행합니다.
+그다음 `~/.zshrc.local`에 개인 경로를 입력하고 필요한 도구를 설치하세요.
 
-## "처음 1번만 설치"와 "새 맥 / 새 환경 설치" 차이
+### 설치 경로 선택 기준
 
-| 구분 | 처음 1번만 설치 (현재 맥) | 새 맥 / 새 환경 설치 |
-|---|---|---|
-| 목적 | 기존 환경 점검 + 이관 | 빈 환경에서 처음 구성 |
-| 실행 명령 | `./bootstrap.sh` | `./install.sh` |
-| 도구 점검 | 포함(Homebrew, oh-my-zsh, plugin) | 별도(사용자가 설치) |
-| 백업 파일 필요 | 기존 파일 백업 생성 가능 | 불필요 |
-| 추천 상황 | 이미 쓰던 맥에서 dotfiles 첫 적용 | 새 맥, 새 계정, 클린 환경 |
+| 상황 | 실행 |
+|---|---|
+| 현재 사용 중인 맥에서 첫 적용 | `./bootstrap.sh` |
+| 새 맥/새 환경에서 시작 | `./install.sh` |
 
-## 1) 새 설정을 추가할 때
+## 설정 확장 가이드
 
-공통 설정인지 개인 설정인지 먼저 나눕니다.
+### 1) 새 설정 추가
+공통 설정인지 개인 설정인지 먼저 구분합니다.
 
 - 공통 설정(커밋 대상): `zsh/conf/*.zsh`
 - 개인 설정(커밋 금지): `~/.zshrc.local`
 
-```bash
-# 수정 후 즉시 반영
-source ~/.zshrc
+중요:
+- `~/.zshrc.local`은 **개인 전용 파일**이며 저장소 커밋 대상이 아닙니다.
+- `.gitignore`에 `zsh/.zshrc.local`이 등록되어 있고, 예시 파일(`zsh/.zshrc.local.example`)만 커밋합니다.
 
-# 문법 확인
+적용/검증:
+
+```bash
+source ~/.zshrc
 zsh -n ~/.zshrc
 ```
 
-## 2) 새 도구를 붙일 때 (상세 가이드)
-
-아래 순서를 지키면, 다른 PC에서도 안전하게 동작합니다.
+### 2) 새 도구 추가
+새 도구는 아래 5단계로 추가하면 안전합니다.
 
 1. 설치 확인
 
@@ -66,15 +83,12 @@ zsh -n ~/.zshrc
 command -v <tool-name>
 ```
 
-2. 로딩 위치 선택
-- 쉘 초기화/도구 초기화: `zsh/conf/toolchains.zsh`
-- 단순 alias: `zsh/conf/aliases.zsh`
-- PATH 관련: `zsh/conf/path.zsh`
+2. 위치 선택
+- 도구 초기화: `zsh/conf/toolchains.zsh`
+- alias: `zsh/conf/aliases.zsh`
+- PATH: `zsh/conf/path.zsh`
 
-3. 조건부 로딩 작성 (필수)
-- 도구가 설치되지 않은 PC에서도 에러가 나지 않아야 합니다.
-
-좋은 예:
+3. 조건부 로딩 작성(필수)
 
 ```zsh
 if command -v fzf >/dev/null 2>&1; then
@@ -86,101 +100,87 @@ if command -v direnv >/dev/null 2>&1; then
 fi
 ```
 
-나쁜 예:
-
-```zsh
-# 설치 안 된 환경에서 즉시 에러 발생 가능
-# eval "$(fzf --zsh)"
-# eval "$(direnv hook zsh)"
-```
-
-4. 검증
+4. 적용/검증
 
 ```bash
 source ~/.zshrc
 command -v fzf direnv
 ```
 
-## 3) 잘되지 않는 경우
+5. 동기화
+- 공통 설정 변경만 git에 반영합니다.
+- 개인값은 `~/.zshrc.local`에만 유지합니다.
+
+## 동기화 가이드 (예시)
+
+예시: 현재 맥에서 `ll` alias를 추가하고 다른 맥으로 동기화하는 흐름
 
 ```bash
-# 1) 문법 확인
-zsh -n ~/.zshrc
-
-# 2) 즉시 로드 에러 확인
-source ~/.zshrc
-
-# 3) 링크 확인
-ls -l ~/.zshrc ~/.p10k.zsh ~/.zprofile
-```
-
-## 현재 맥에서 원래 설정으로 되돌리기
-
-백업 파일이 있는 현재 맥에서만 사용하세요.
-백업 파일이 없으면 이 절차를 사용하지 말고, `새 맥 / 새 환경 설치` 절차를 따르세요.
-
-```bash
-# 0) 백업 파일 확인
-ls ~/.zshrc.bak.*
-ls ~/.p10k.zsh.bak.*
-ls ~/.zprofile.bak.*
-
-# 아래 <latest-backup>는 위에서 확인한 최신 파일명으로 직접 입력
-
-# 1) ~/.zshrc 원복
-rm -f ~/.zshrc
-cp ~/.zshrc.bak.<latest-backup> ~/.zshrc
-
-# 2) ~/.p10k.zsh 원복
-rm -f ~/.p10k.zsh
-cp ~/.p10k.zsh.bak.<latest-backup> ~/.p10k.zsh
-
-# 3) ~/.zprofile 원복
-rm -f ~/.zprofile
-cp ~/.zprofile.bak.<latest-backup> ~/.zprofile
-```
-
-## 4) 이후 절차 (동기화)
-
-```bash
+# 현재 맥에서
 cd ~/dotfiles
-git add .
-git commit -m "chore: update zsh config"
+printf "\nalias ll='ls -al'\n" >> zsh/conf/aliases.zsh
+source ~/.zshrc
+alias ll
+
+git add zsh/conf/aliases.zsh README.md
+# README 변경이 없으면 README.md는 제외
+
+git commit -m "chore: add ll alias"
 git push
 ```
 
-다른 PC에서는:
-
 ```bash
+# 다른 맥에서
 cd ~/dotfiles
 git pull
 ./install.sh
+source ~/.zshrc
+alias ll
 ```
 
-## 파일 형식 안내 (간단)
+## 주요 파일 설명
 
-| 형식 | 예시 | 용도 |
+### 대구분 1: 실행 진입점
+#### 소구분: 쉘 시작 파일
+
+| 파일 | 형식 | 역할 |
 |---|---|---|
-| Shell Script (`.sh`) | `install.sh`, `bootstrap.sh` | 자동 설치/점검 실행 |
-| Zsh 설정 (`.zsh`, `.zshrc`, `.zprofile`) | `zsh/conf/*.zsh`, `zsh/.zshrc` | 쉘 동작/도구 초기화 |
-| Markdown (`.md`) | `README.md`, `RELEASE_TEMPLATE.md` | 사용 가이드/문서화 |
-| Ignore (`.gitignore`) | `.gitignore` | 로컬 파일 커밋 제외 |
+| `zsh/.zshrc` | Zsh 설정 | zsh 로딩 시작점 |
+| `zsh/.zprofile` | Zsh 설정 | 로그인 셸 초기 경로 설정 |
 
-## 주요 파일 설명 (표)
+### 대구분 2: 공통 zsh 모듈
+#### 소구분: 기능 모듈
 
-| 파일 | 형식 | 역할 | 수정 위치 | 커밋 |
-|---|---|---|---|---|
-| `zsh/.zshrc` | Zsh 설정 | 로딩 진입점(얇은 파일) | 공통 | 예 |
-| `zsh/conf/core.zsh` | Zsh 설정 | 캐시/테마 기본 설정 | 공통 | 예 |
-| `zsh/conf/plugins.zsh` | Zsh 설정 | oh-my-zsh + plugin 로딩 | 공통 | 예 |
-| `zsh/conf/aliases.zsh` | Zsh 설정 | alias 모음 | 공통 | 예 |
-| `zsh/conf/path.zsh` | Zsh 설정 | PATH 정책 | 공통 | 예 |
-| `zsh/conf/toolchains.zsh` | Zsh 설정 | nvm/rbenv/sdkman/zoxide | 공통 | 예 |
-| `zsh/.zprofile` | Zsh 설정 | 로그인 셸 경로 설정 | 공통 | 예 |
-| `zsh/.p10k.zsh` | Zsh 설정 | 프롬프트 스타일 | 공통 | 예 |
-| `zsh/.zshrc.local.example` | Zsh 설정 예시 | 개인 설정 샘플 | 공통(예시) | 예 |
-| `~/.zshrc.local` | Zsh 설정 | 개인 경로/비밀값 | 개인 | 아니오 |
-| `install.sh` | Shell Script | 백업 + 심볼릭 링크 설치 | 공통 | 예 |
-| `bootstrap.sh` | Shell Script | 환경 점검 후 설치 실행 | 공통 | 예 |
-| `.gitignore` | Ignore | 로컬 파일 커밋 방지 | 공통 | 예 |
-| `README.md` | Markdown | 운영 가이드 | 공통 | 예 |
+| 파일 | 형식 | 역할 |
+|---|---|---|
+| `zsh/conf/core.zsh` | Zsh 설정 | 캐시/테마 기본 로딩 |
+| `zsh/conf/plugins.zsh` | Zsh 설정 | oh-my-zsh 및 plugin 로딩 |
+| `zsh/conf/aliases.zsh` | Zsh 설정 | 공통 alias 모음 |
+| `zsh/conf/path.zsh` | Zsh 설정 | PATH 기본 정책 |
+| `zsh/conf/toolchains.zsh` | Zsh 설정 | nvm/rbenv/sdkman/zoxide 초기화 |
+| `zsh/.p10k.zsh` | Zsh 설정 | 프롬프트 스타일 설정 |
+
+### 대구분 3: 개인 설정
+#### 소구분: 개인 전용 파일
+
+| 파일 | 형식 | 역할 |
+|---|---|---|
+| `zsh/.zshrc.local.example` | Zsh 설정 예시 | 개인 설정 템플릿 |
+| `~/.zshrc.local` | Zsh 설정 | 개인 경로/비밀값 (비커밋) |
+
+### 대구분 4: 설치/운영 스크립트
+#### 소구분: 자동화
+
+| 파일 | 형식 | 역할 |
+|---|---|---|
+| `install.sh` | Shell Script | 백업 + 심볼릭 링크 설치 |
+| `bootstrap.sh` | Shell Script | 환경 점검 후 설치 실행 |
+
+### 대구분 5: 운영 문서
+#### 소구분: 규칙/가이드
+
+| 파일 | 형식 | 역할 |
+|---|---|---|
+| `README.md` | Markdown | 사용자 운영 가이드 |
+| `Agents.md` | Markdown | 규칙 문서 인덱스 |
+| `docs/agents/*.md` | Markdown | 에이전트 규칙/템플릿 SSoT |
