@@ -99,16 +99,79 @@ source ~/.zshrc
 
 ## 주요 파일 설명
 
-| 대구분 | 소구분 | 파일 | 형식 | 역할 |
-|---|---|---|---|---|
-| 실행 진입점 | 쉘 시작 파일 | `zsh/.zshrc` | Zsh 설정 | zsh 로딩 시작점 |
-| 실행 진입점 | 쉘 시작 파일 | `zsh/.zprofile` | Zsh 설정 | 로그인 셸 초기 경로 설정 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/conf/core.zsh` | Zsh 설정 | 캐시/테마 기본 로딩 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/conf/plugins.zsh` | Zsh 설정 | oh-my-zsh 및 plugin 로딩 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/conf/aliases.zsh` | Zsh 설정 | 공통 alias 모음 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/conf/path.zsh` | Zsh 설정 | PATH 기본 정책 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/conf/toolchains.zsh` | Zsh 설정 | 도구체인 초기화 |
-| 공통 zsh 모듈 | 기능 모듈 | `zsh/.p10k.zsh` | Zsh 설정 | 프롬프트 스타일 |
-| 개인 설정 | 개인 전용 파일 | `zsh/.zshrc.local.example` | Zsh 설정 예시 | 개인 설정 템플릿 |
-| 개인 설정 | 개인 전용 파일 | `~/.zshrc.local` | Zsh 설정 | 개인 경로/비밀값 (비커밋) |
-| 설치/운영 스크립트 | 자동화 | `install.sh` | Shell Script | 환경 점검 + 백업 + 링크 설치 |
+<table>
+  <thead>
+    <tr>
+      <th>대구분</th>
+      <th>소구분</th>
+      <th>파일</th>
+      <th>형식</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">실행 진입점</td>
+      <td rowspan="2">쉘 시작 파일</td>
+      <td><code>zsh/.zshrc</code></td>
+      <td>Zsh 설정</td>
+      <td>zsh 로딩 시작점</td>
+    </tr>
+    <tr>
+      <td><code>zsh/.zprofile</code></td>
+      <td>Zsh 설정</td>
+      <td>로그인 셸 초기 경로 설정</td>
+    </tr>
+    <tr>
+      <td rowspan="6">공통 zsh 모듈</td>
+      <td rowspan="6">기능 모듈</td>
+      <td><code>zsh/conf/core.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>캐시/테마 기본 로딩</td>
+    </tr>
+    <tr>
+      <td><code>zsh/conf/plugins.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>oh-my-zsh 및 plugin 로딩</td>
+    </tr>
+    <tr>
+      <td><code>zsh/conf/aliases.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>공통 alias 모음</td>
+    </tr>
+    <tr>
+      <td><code>zsh/conf/path.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>PATH 기본 정책</td>
+    </tr>
+    <tr>
+      <td><code>zsh/conf/toolchains.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>도구체인 초기화</td>
+    </tr>
+    <tr>
+      <td><code>zsh/.p10k.zsh</code></td>
+      <td>Zsh 설정</td>
+      <td>프롬프트 스타일</td>
+    </tr>
+    <tr>
+      <td rowspan="2">개인 설정</td>
+      <td rowspan="2">개인 전용 파일</td>
+      <td><code>zsh/.zshrc.local.example</code></td>
+      <td>Zsh 설정 예시</td>
+      <td>개인 설정 템플릿</td>
+    </tr>
+    <tr>
+      <td><code>~/.zshrc.local</code></td>
+      <td>Zsh 설정</td>
+      <td>개인 경로/비밀값 (비커밋)</td>
+    </tr>
+    <tr>
+      <td>설치/운영 스크립트</td>
+      <td>자동화</td>
+      <td><code>install.sh</code></td>
+      <td>Shell Script</td>
+      <td>환경 점검 + 백업 + 링크 설치</td>
+    </tr>
+  </tbody>
+</table>
