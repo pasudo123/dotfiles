@@ -8,6 +8,24 @@
 ## 현재 포함 도구
 `git`, `gh`, `jq`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
 
+| 도구 | 용도 |
+|---|---|
+| `git` | 버전 관리 |
+| `gh` | GitHub CLI |
+| `jq` | JSON 파싱/필터링 |
+| `fzf` | 퍼지 검색 |
+| `zoxide` | 디렉토리 이동 보조 |
+| `fd` | 빠른 파일 검색 |
+| `direnv` | 디렉토리별 환경변수 관리 |
+| `nvm` | Node.js 버전 관리 |
+| `openjdk` | Java 런타임/개발 |
+| `grpcurl` | gRPC API 테스트 |
+| `httpie` | HTTP API 테스트 |
+| `watch` | 명령 반복 실행 |
+| `telnet` | 포트/네트워크 점검 |
+| `tmux` | 터미널 멀티플렉서 |
+| `ripgrep` | 빠른 텍스트 검색 |
+
 ## 새 도구 추가 방법
 1. 설치: `brew install <tool>`
 2. 반영: `Brewfile`에 `brew "<tool>"` 추가
