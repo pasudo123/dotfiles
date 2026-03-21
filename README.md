@@ -4,9 +4,8 @@
 
 ## 목차
 - [설치 가이드](#설치-가이드)
-  - [A. 현재 맥에 처음 적용](#a-현재-맥에-처음-적용)
-  - [B. 새 맥/새 환경에서 시작](#b-새-맥새-환경에서-시작)
-  - [왜 bootstrap.sh와 install.sh를 분리했는가](#왜-bootstrapsh와-installsh를-분리했는가)
+  - [A. 기본 설치 (권장)](#a-기본-설치-권장)
+  - [왜 install.sh 하나로 운영하는가](#왜-installsh-하나로-운영하는가)
 - [설정 확장 가이드](#설정-확장-가이드)
   - [1) 새 설정 추가](#1-새-설정-추가)
   - [2) 새 도구 추가](#2-새-도구-추가)
@@ -15,30 +14,28 @@
 
 ## 설치 가이드
 
-### A. 현재 맥에 처음 적용
-이미 사용 중인 맥에서 dotfiles를 처음 적용할 때 사용합니다.
+### A. 기본 설치 (권장)
+모든 환경에서 기본으로 `install.sh`를 사용합니다.
 
 ```bash
-cd ~/dotfiles
-./bootstrap.sh
-```
-
-### B. 새 맥/새 환경에서 시작
-새 맥/새 계정처럼 깨끗한 환경에서 시작할 때 사용합니다.
-
-```bash
-git clone <your-repo> ~/dotfiles
 cd ~/dotfiles
 ./install.sh
+```
+
+새 맥에서는 추가로 개인 파일을 만듭니다.
+
+```bash
 cp zsh/.zshrc.local.example ~/.zshrc.local
 ```
 
-### 왜 bootstrap.sh와 install.sh를 분리했는가
+### 왜 install.sh 하나로 운영하는가
 
-| 스크립트 | 역할 | 사용 시점 |
-|---|---|---|
-| `bootstrap.sh` | 환경 점검(Homebrew, oh-my-zsh, plugin) + `install.sh` 실행 | 현재 맥 첫 적용, 점검이 필요한 경우 |
-| `install.sh` | 백업 + 심볼릭 링크 설치 + 문법 검증 | 새 맥 설치, 재설치, 동기화 반영 |
+| 항목 | install.sh |
+|---|---|
+| 기본 사용 여부 | 단일 진입점 |
+| 환경 점검 | 포함(경고 출력) |
+| 설치/백업/검증 | 포함 |
+| 장점 | 명령이 하나라 혼동이 적음 |
 
 ## 설정 확장 가이드
 
@@ -87,7 +84,6 @@ fi
 cd ~/dotfiles
 printf "\nalias ll='ls -al'\n" >> zsh/conf/aliases.zsh
 source ~/.zshrc
-
 git add zsh/conf/aliases.zsh
 git commit -m "chore: add ll alias"
 git push
@@ -115,5 +111,4 @@ source ~/.zshrc
 | 공통 zsh 모듈 | 기능 모듈 | `zsh/.p10k.zsh` | Zsh 설정 | 프롬프트 스타일 |
 | 개인 설정 | 개인 전용 파일 | `zsh/.zshrc.local.example` | Zsh 설정 예시 | 개인 설정 템플릿 |
 | 개인 설정 | 개인 전용 파일 | `~/.zshrc.local` | Zsh 설정 | 개인 경로/비밀값 (비커밋) |
-| 설치/운영 스크립트 | 자동화 | `install.sh` | Shell Script | 백업 + 링크 설치 |
-| 설치/운영 스크립트 | 자동화 | `bootstrap.sh` | Shell Script | 환경 점검 + 설치 실행 |
+| 설치/운영 스크립트 | 자동화 | `install.sh` | Shell Script | 환경 점검 + 백업 + 링크 설치 |
