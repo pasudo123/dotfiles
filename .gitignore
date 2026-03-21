@@ -1,0 +1,5 @@
+# 로컬 PC 전용 zsh 설정
+zsh/.zshrc.local
+
+# install 스크립트가 만든 백업 파일
+*.bak.*

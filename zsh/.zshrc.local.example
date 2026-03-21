@@ -1,0 +1,5 @@
+# 개인 경로와 비밀값은 이 파일에 작성합니다.
+# 이 파일은 git에 커밋하지 않습니다.
+
+export MVN_PATH="$HOME/Downloads/util/apache-maven-3.8.7/bin"
+export FLUTTER_PATH="$HOME/develop-pasudo/flutter/bin"
