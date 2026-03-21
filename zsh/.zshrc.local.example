@@ -3,3 +3,16 @@
 
 export MVN_PATH="$HOME/Downloads/util/apache-maven-3.8.7/bin"
 export FLUTTER_PATH="$HOME/develop-pasudo/flutter/bin"
+
+# tmux는 자동 실행 대신 수동 진입 함수를 권장합니다.
+# ta: 기존 세션에 붙거나 없으면 새 세션 생성
+if command -v tmux >/dev/null 2>&1; then
+  ta() {
+    tmux attach-session -t main 2>/dev/null || tmux new-session -s main
+  }
+
+  # tn: 이름이 main인 새 세션 강제 생성
+  tn() {
+    tmux new-session -s main
+  }
+fi
