@@ -34,6 +34,7 @@
 ## 참고
 - `sdkman`은 현재 Homebrew가 아닌 직접 설치 방식으로 사용합니다.
 - zsh 초기화는 `zsh/conf/toolchains.zsh`에서 관리합니다.
+- 실제 사용 예시는 `docs/cli-cheatsheet.md`를 참고합니다.
 
 ## 공식 문서
 - Homebrew Brew Bundle: https://docs.brew.sh/Brew-Bundle-and-Brewfile
