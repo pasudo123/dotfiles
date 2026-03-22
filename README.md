@@ -24,6 +24,7 @@ cd ~/dotfiles
 
 Brewfile 운영 방법은 별도 문서에서 확인하세요.
 - [Brewfile 가이드](docs/brewfile.md)
+- [CLI 치트시트](docs/cli-cheatsheet.md)
 - [과거 맥북 세팅 참고](docs/reference/macbook-setting-legacy.md)
 - Homebrew 공식 문서: https://docs.brew.sh/Brew-Bundle-and-Brewfile
 
