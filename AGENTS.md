@@ -1,4 +1,4 @@
-# Agents.md
+# AGENTS.md
 
 에이전트 규칙 문서 인덱스입니다.
 
