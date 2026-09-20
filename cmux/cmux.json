@@ -1,23 +1,39 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
+
+  // Catppuccin Mocha 색상을 사용해 현재 활성 pane을 구분한다.
   "paneBorderColor": "#313244",
   "activePaneBorderColor": "#89B4FA",
+
   "app": {
+    // 새 workspace는 현재 위치를 상속하지 않고 Ghostty의 working-directory에서 시작한다.
     "workspaceInheritWorkingDirectory": false,
+
+    // 알림이 발생해도 sidebar의 workspace 순서를 유지한다.
     "reorderOnNotification": false
   },
+
   "sidebar": {
+    // Git branch를 별도 줄이 아닌 workspace 제목과 같은 줄에 표시한다.
     "branchLayout": "inline",
+
+    // 알림 본문이 sidebar를 과도하게 차지하지 않도록 최대 3줄만 표시한다.
     "notificationMessageLineLimit": 3,
+
+    // 에이전트 실행 상태와 작업 진행률은 유지하고 상세 로그만 숨긴다.
     "showAgentActivity": true,
     "showProgress": true,
     "showLog": false
   },
+
   "sidebarAppearance": {
+    // sidebar 배경을 Ghostty 터미널 테마와 맞춘다.
     "matchTerminalBackground": true
   },
+
   "automation": {
+    // Gemini CLI를 사용하지 않으므로 cmux integration hook을 비활성화한다.
     "geminiIntegration": false
   }
 }
