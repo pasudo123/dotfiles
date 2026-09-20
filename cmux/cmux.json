@@ -11,7 +11,10 @@
     "workspaceInheritWorkingDirectory": false,
 
     // 알림이 발생해도 sidebar의 workspace 순서를 유지한다.
-    "reorderOnNotification": false
+    "reorderOnNotification": false,
+
+    // 상단 workspace title bar와 surface tab을 표시한다.
+    "minimalMode": false
   },
 
   "sidebar": {
