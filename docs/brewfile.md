@@ -6,13 +6,14 @@
 - 실행: `./install.sh --with-brew`
 
 ## 현재 포함 도구
-`git`, `gh`, `jq`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
+`git`, `gh`, `jq`, `bat`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
 
 | 도구 | 용도 | 공식 링크 |
 |---|---|---|
 | `git` | 버전 관리 | https://git-scm.com/ |
 | `gh` | GitHub CLI | https://cli.github.com/ |
 | `jq` | JSON 파싱/필터링 | https://jqlang.org/ |
+| `bat` | 구문 강조를 지원하는 파일 출력 | https://github.com/sharkdp/bat |
 | `fzf` | 퍼지 검색 | https://github.com/junegunn/fzf |
 | `zoxide` | 디렉토리 이동 보조 | https://github.com/ajeetdsouza/zoxide |
 | `fd` | 빠른 파일 검색 | https://github.com/sharkdp/fd |

@@ -4,7 +4,7 @@ set -euo pipefail
 # 이 스크립트는 dotfiles 설치의 단일 진입점입니다.
 # 1) 환경 점검(경고)
 # 2) 기존 파일 백업
-# 3) 심볼릭 링크 설치
+# 3) 셸/터미널 설정 심볼릭 링크 설치
 # 4) 선택적 Brewfile 설치
 # 5) 문법 검증
 
@@ -168,6 +168,10 @@ link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 
+mkdir -p "$HOME/.config/cmux" "$HOME/.config/ghostty"
+link_file "$DOTFILES_DIR/cmux/cmux.json" "$HOME/.config/cmux/cmux.json"
+link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
+
 if [[ ! -f "$HOME/.zshrc.local" ]]; then
   cp "$DOTFILES_DIR/zsh/.zshrc.local.example" "$HOME/.zshrc.local"
   info "Created $HOME/.zshrc.local from example"
@@ -184,6 +188,13 @@ else
   error "zsh syntax check failed"
   error "Check zsh/.zshrc and zsh/conf/*.zsh in dotfiles"
   exit 1
+fi
+
+if command -v cmux >/dev/null 2>&1; then
+  cmux config validate --path "$DOTFILES_DIR/cmux/cmux.json"
+  ok "cmux config validation passed"
+else
+  warn "cmux not found; cmux config validation skipped"
 fi
 
 echo ""

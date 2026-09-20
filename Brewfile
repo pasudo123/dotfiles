@@ -5,6 +5,7 @@
 brew "git"
 brew "gh"
 brew "jq"
+brew "bat"
 brew "fzf"
 brew "zoxide"
 brew "fd"

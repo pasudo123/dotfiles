@@ -14,6 +14,7 @@
 | `fzf` | 목록에서 빠르게 고르기 | `history \| fzf`, `fd . \| fzf` | [공식 문서](https://github.com/junegunn/fzf) |
 | `zoxide` | 자주 가는 폴더 이동 | `z project`, `zi` | [공식 문서](https://github.com/ajeetdsouza/zoxide) |
 | `jq` | JSON 보기/필터링 | `jq .`, `jq -r '.key'` | [공식 문서](https://jqlang.org/) |
+| `bat` | 구문 강조와 줄 번호를 포함해 파일 보기 | `bat README.md` | [공식 문서](https://github.com/sharkdp/bat) |
 
 <details>
 <summary><code>git</code> - 변경 확인과 브랜치 작업</summary>
@@ -134,6 +135,19 @@ cat data.json | jq '.items[0]'
 
 # 문자열 값만 깔끔하게 추출
 cat data.json | jq -r '.name'
+```
+
+</details>
+
+<details>
+<summary><code>bat</code> - 파일 내용을 읽기 좋게 출력하기</summary>
+
+```bash
+# Markdown 파일을 구문 강조와 함께 확인
+bat README.md
+
+# 줄 번호 없이 출력
+bat --style=plain README.md
 ```
 
 </details>
