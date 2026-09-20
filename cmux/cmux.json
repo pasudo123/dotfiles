@@ -1,10 +1,23 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
+  "paneBorderColor": "#313244",
+  "activePaneBorderColor": "#89B4FA",
   "app": {
-    "workspaceInheritWorkingDirectory": false
+    "workspaceInheritWorkingDirectory": false,
+    "reorderOnNotification": false
+  },
+  "sidebar": {
+    "branchLayout": "inline",
+    "notificationMessageLineLimit": 3,
+    "showAgentActivity": true,
+    "showProgress": true,
+    "showLog": false
   },
   "sidebarAppearance": {
     "matchTerminalBackground": true
+  },
+  "automation": {
+    "geminiIntegration": false
   }
 }
