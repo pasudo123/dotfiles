@@ -6,7 +6,7 @@
 - 실행: `./install.sh --with-brew`
 
 ## 현재 포함 도구
-`git`, `gh`, `jq`, `bat`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`, `gemini-cli`
+`git`, `gh`, `jq`, `bat`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
 
 | 도구 | 용도 | 공식 링크 |
 |---|---|---|
@@ -26,7 +26,6 @@
 | `telnet` | 포트/네트워크 점검 | https://formulae.brew.sh/formula/telnet |
 | `tmux` | 터미널 멀티플렉서 | https://github.com/tmux/tmux/wiki |
 | `ripgrep` | 빠른 텍스트 검색 | https://github.com/BurntSushi/ripgrep |
-| `gemini-cli` | 터미널 기반 Gemini 에이전트 | https://github.com/google-gemini/gemini-cli |
 
 ## 새 도구 추가 방법
 1. 설치: `brew install <tool>`

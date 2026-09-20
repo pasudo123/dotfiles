@@ -160,7 +160,6 @@ bat --style=plain README.md
 | `nvm` | Node 버전 전환 | `nvm ls`, `nvm install`, `nvm use` | [공식 문서](https://github.com/nvm-sh/nvm) |
 | `openjdk` | Java 실행 확인 | `java -version` | [공식 문서](https://openjdk.org/) |
 | `tmux` | 터미널 세션 유지 | `new`, `attach`, `ls` | [공식 문서](https://github.com/tmux/tmux/wiki) |
-| `gemini-cli` | 터미널에서 Gemini 에이전트 사용 | `gemini` | [공식 문서](https://github.com/google-gemini/gemini-cli) |
 
 <details>
 <summary><code>direnv</code> - 프로젝트별 환경변수 자동 적용</summary>
@@ -220,19 +219,6 @@ tmux ls
 
 # main 세션에 다시 붙기
 tmux attach -t main
-```
-
-</details>
-
-<details>
-<summary><code>gemini-cli</code> - Gemini 에이전트 시작하기</summary>
-
-```bash
-# 대화형 세션 시작
-gemini
-
-# 한 번의 프롬프트 실행
-gemini -p "이 저장소 구조를 요약해줘"
 ```
 
 </details>
