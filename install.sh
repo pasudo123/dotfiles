@@ -168,8 +168,12 @@ link_file "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 link_file "$DOTFILES_DIR/zsh/.zprofile" "$HOME/.zprofile"
 
-mkdir -p "$HOME/.config/cmux" "$HOME/.config/ghostty"
+mkdir -p \
+  "$HOME/.config/cmux" \
+  "$HOME/.config/ghostty" \
+  "$HOME/Library/Application Support/com.cmuxterm.app"
 link_file "$DOTFILES_DIR/cmux/cmux.json" "$HOME/.config/cmux/cmux.json"
+link_file "$DOTFILES_DIR/cmux/config.ghostty" "$HOME/Library/Application Support/com.cmuxterm.app/config.ghostty"
 link_file "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
 if [[ ! -f "$HOME/.zshrc.local" ]]; then

@@ -146,11 +146,17 @@ source ~/.zshrc
       <td>개인 경로/비밀값 (비커밋)</td>
     </tr>
     <tr>
-      <td rowspan="2">터미널</td>
+      <td rowspan="3">터미널</td>
       <td>cmux</td>
       <td><code>cmux/cmux.json</code></td>
       <td>JSONC</td>
       <td>작업 공간 및 사이드바 동작</td>
+    </tr>
+    <tr>
+      <td>cmux 터미널 UI</td>
+      <td><code>cmux/config.ghostty</code></td>
+      <td>Ghostty 설정</td>
+      <td>cmux 사이드바·surface tab 글자 크기</td>
     </tr>
     <tr>
       <td>Ghostty</td>

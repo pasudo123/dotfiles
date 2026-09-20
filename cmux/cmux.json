@@ -1,10 +1,34 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
   "schemaVersion": 1,
+
+  // 활성 pane 구분
+  "paneBorderColor": "#313244",
+  "activePaneBorderColor": "#89B4FA",
+
+  // workspace 동작
   "app": {
-    "workspaceInheritWorkingDirectory": false
+    "workspaceInheritWorkingDirectory": false,
+    "reorderOnNotification": false,
+    "minimalMode": false
   },
+
+  // sidebar 정보 표시
+  "sidebar": {
+    "branchLayout": "inline",
+    "notificationMessageLineLimit": 3,
+    "showAgentActivity": true,
+    "showProgress": true,
+    "showLog": false
+  },
+
+  // terminal과 sidebar 배경 통일
   "sidebarAppearance": {
     "matchTerminalBackground": true
+  },
+
+  // 사용하지 않는 integration 비활성화
+  "automation": {
+    "geminiIntegration": false
   }
 }
