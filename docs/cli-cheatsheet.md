@@ -14,6 +14,7 @@
 | `fzf` | 목록에서 빠르게 고르기 | `history \| fzf`, `fd . \| fzf` | [공식 문서](https://github.com/junegunn/fzf) |
 | `zoxide` | 자주 가는 폴더 이동 | `z project`, `zi` | [공식 문서](https://github.com/ajeetdsouza/zoxide) |
 | `jq` | JSON 보기/필터링 | `jq .`, `jq -r '.key'` | [공식 문서](https://jqlang.org/) |
+| `bat` | 구문 강조와 줄 번호를 포함해 파일 보기 | `bat README.md` | [공식 문서](https://github.com/sharkdp/bat) |
 
 <details>
 <summary><code>git</code> - 변경 확인과 브랜치 작업</summary>
@@ -138,6 +139,19 @@ cat data.json | jq -r '.name'
 
 </details>
 
+<details>
+<summary><code>bat</code> - 파일 내용을 읽기 좋게 출력하기</summary>
+
+```bash
+# Markdown 파일을 구문 강조와 함께 확인
+bat README.md
+
+# 줄 번호 없이 출력
+bat --style=plain README.md
+```
+
+</details>
+
 ## 프로젝트/환경 관리 도구
 
 | 도구 | 언제 쓰는지 | 먼저 익힐 명령 | 공식 링크 |
@@ -146,6 +160,7 @@ cat data.json | jq -r '.name'
 | `nvm` | Node 버전 전환 | `nvm ls`, `nvm install`, `nvm use` | [공식 문서](https://github.com/nvm-sh/nvm) |
 | `openjdk` | Java 실행 확인 | `java -version` | [공식 문서](https://openjdk.org/) |
 | `tmux` | 터미널 세션 유지 | `new`, `attach`, `ls` | [공식 문서](https://github.com/tmux/tmux/wiki) |
+| `gemini-cli` | 터미널에서 Gemini 에이전트 사용 | `gemini` | [공식 문서](https://github.com/google-gemini/gemini-cli) |
 
 <details>
 <summary><code>direnv</code> - 프로젝트별 환경변수 자동 적용</summary>
@@ -205,6 +220,19 @@ tmux ls
 
 # main 세션에 다시 붙기
 tmux attach -t main
+```
+
+</details>
+
+<details>
+<summary><code>gemini-cli</code> - Gemini 에이전트 시작하기</summary>
+
+```bash
+# 대화형 세션 시작
+gemini
+
+# 한 번의 프롬프트 실행
+gemini -p "이 저장소 구조를 요약해줘"
 ```
 
 </details>

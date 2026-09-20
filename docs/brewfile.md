@@ -6,13 +6,14 @@
 - 실행: `./install.sh --with-brew`
 
 ## 현재 포함 도구
-`git`, `gh`, `jq`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`
+`git`, `gh`, `jq`, `bat`, `fzf`, `zoxide`, `fd`, `direnv`, `nvm`, `openjdk`, `grpcurl`, `httpie`, `watch`, `telnet`, `tmux`, `ripgrep`, `gemini-cli`
 
 | 도구 | 용도 | 공식 링크 |
 |---|---|---|
 | `git` | 버전 관리 | https://git-scm.com/ |
 | `gh` | GitHub CLI | https://cli.github.com/ |
 | `jq` | JSON 파싱/필터링 | https://jqlang.org/ |
+| `bat` | 구문 강조를 지원하는 파일 출력 | https://github.com/sharkdp/bat |
 | `fzf` | 퍼지 검색 | https://github.com/junegunn/fzf |
 | `zoxide` | 디렉토리 이동 보조 | https://github.com/ajeetdsouza/zoxide |
 | `fd` | 빠른 파일 검색 | https://github.com/sharkdp/fd |
@@ -25,6 +26,7 @@
 | `telnet` | 포트/네트워크 점검 | https://formulae.brew.sh/formula/telnet |
 | `tmux` | 터미널 멀티플렉서 | https://github.com/tmux/tmux/wiki |
 | `ripgrep` | 빠른 텍스트 검색 | https://github.com/BurntSushi/ripgrep |
+| `gemini-cli` | 터미널 기반 Gemini 에이전트 | https://github.com/google-gemini/gemini-cli |
 
 ## 새 도구 추가 방법
 1. 설치: `brew install <tool>`

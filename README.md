@@ -1,6 +1,6 @@
 # dotfiles
 
-이 저장소는 zsh 환경과 CLI 도구를 새 맥으로 이식하기 위한 설정 모음입니다.
+이 저장소는 zsh·cmux·Ghostty 환경과 CLI 도구를 새 맥으로 이식하기 위한 설정 모음입니다.
 
 ## 목차
 - [설치 가이드](#설치-가이드)
@@ -10,7 +10,7 @@
 
 ## 설치 가이드
 
-### 1) 기본 설치 (셸 설정 링크)
+### 1) 기본 설치 (셸/터미널 설정 링크)
 ```bash
 cd ~/dotfiles
 ./install.sh
@@ -144,6 +144,19 @@ source ~/.zshrc
       <td><code>~/.zshrc.local</code></td>
       <td>Zsh 설정</td>
       <td>개인 경로/비밀값 (비커밋)</td>
+    </tr>
+    <tr>
+      <td rowspan="2">터미널</td>
+      <td>cmux</td>
+      <td><code>cmux/cmux.json</code></td>
+      <td>JSONC</td>
+      <td>작업 공간 및 사이드바 동작</td>
+    </tr>
+    <tr>
+      <td>Ghostty</td>
+      <td><code>ghostty/config</code></td>
+      <td>Ghostty 설정</td>
+      <td>cmux 터미널의 글꼴·테마·기본 작업 경로</td>
     </tr>
     <tr>
       <td rowspan="2">설치/패키지</td>
